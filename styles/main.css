@@ -27,7 +27,9 @@ body {
   color: #4e627a; }
 
 .warp {
-  max-width: 1200px;
+  max-width: 1190px;
+  padding-left: 5px;
+  padding-right: 5px;
   width: 100%;
   margin: 0 auto; }
 
@@ -46,7 +48,7 @@ body {
 
 h2 {
   font-weight: 400;
-  font-size: 36px;
+  font-size: 32px;
   margin-top: 20px;
   font-family: "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif; }
 
@@ -72,14 +74,31 @@ h2 {
     -moz-user-select: none;
     -ms-user-select: none;
     -o-user-select: none;
-    user-select: none; }
+    user-select: none;
+    position: relative; }
+    .projact li a {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background-image: url(about:blank); }
 
-.share li {
+.info li {
   color: #2C93FF;
   border-color: #2C93FF; }
-  .share li:hover {
+  .info li:hover {
     color: #1084FF;
     border-color: #1084FF;
+    background-color: transparent;
+    opacity: 1; }
+
+.default li {
+  color: #777;
+  border-color: #999; }
+  .default li:hover {
+    color: #666;
+    border-color: #888;
     background-color: transparent;
     opacity: 1; }
 
