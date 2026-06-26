@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Caching Strategies — Web-505 | Rock Wong</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <style>
+        article { max-width: 680px; margin-top: 40px; line-height: 1.8; font-size: 16px; }
+        article h2 { font-size: 22px; margin: 36px 0 12px; font-weight: 600; color: #333; }
+        article p { margin-bottom: 1em; }
+        article code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; font-size: 14px; }
+        article table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+        article th { background: #f5f5f5; text-align: left; padding: 8px 12px; border: 1px solid #e0e0e0; }
+        article td { padding: 8px 12px; border: 1px solid #e0e0e0; }
+    </style>
+</head>
+<body>
+<div class="warp">
+    <div class="name"><span class="first-name">Rock</span><span class="last-name">.wong</span></div>
+    <article>
+        <h2>Caching Strategies for the Web</h2>
+        <p>Caching is the single most effective performance optimization available to web developers. A well-configured cache keeps repeat visits fast and reduces server load with almost no ongoing cost.</p>
+
+        <h2>Cache-Control Headers</h2>
+        <p>The <code>Cache-Control</code> response header is your primary tool. It tells browsers and intermediate proxies how long they can serve a resource without checking back with the origin server.</p>
+        <table>
+            <tr><th>Directive</th><th>Meaning</th></tr>
+            <tr><td><code>max-age=31536000</code></td><td>Cache for one year (ideal for hashed assets)</td></tr>
+            <tr><td><code>no-cache</code></td><td>Always validate before using cached copy</td></tr>
+            <tr><td><code>no-store</code></td><td>Never cache — use for sensitive data</td></tr>
+            <tr><td><code>public</code></td><td>Cacheable by browsers and CDNs alike</td></tr>
+            <tr><td><code>immutable</code></td><td>The resource will never change (use with hashed filenames)</td></tr>
+        </table>
+
+        <h2>Hashed Filenames</h2>
+        <p>Bundle your assets with content hashes in the filename — <code>main.a8f3b2c.js</code> instead of <code>main.js</code>. When the content changes, the filename changes, which makes the old cached copy irrelevant. Combined with <code>max-age</code> and <code>immutable</code>, this is as close to perfect caching as the web gets.</p>
+
+        <h2>Service Worker Caching</h2>
+        <p>For offline support and fine-grained control, a service worker can intercept network requests and serve from a local cache. This is the engine behind progressive web apps — and it works even when the user has no connection at all.</p>
+
+        <p style="margin-top: 30px;"><a href="../index.html">&larr; Back to Web-505</a></p>
+    </article>
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web-505 — Performance Primer | Rock Wong</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="../styles/main.css">
+    <style>
+        article { max-width: 680px; margin-top: 40px; line-height: 1.8; font-size: 16px; }
+        article h2 { font-size: 22px; margin: 36px 0 12px; font-weight: 600; color: #333; }
+        article p { margin-bottom: 1em; }
+        article code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; font-size: 14px; }
+        article ul { list-style: disc; margin-left: 24px; margin-bottom: 1em; }
+        article ul li { margin-bottom: 6px; }
+    </style>
+</head>
+<body>
+<div class="warp">
+    <div class="name"><span class="first-name">Rock</span><span class="last-name">.wong</span></div>
+    <article>
+        <h2>Web-505: A Performance Primer</h2>
+        <p>Web performance isn't a single metric — it's a stack of concerns spanning the network, the render pipeline, and the runtime. Small improvements at each layer compound into experiences that feel instant.</p>
+
+        <h2>Network</h2>
+        <p>The fastest request is the one you never make. Before optimizing how data arrives, ask whether it needs to arrive at all in that moment. After that, the standard playbook applies:</p>
+        <ul>
+            <li>Minify and compress assets — every byte counts on a slow connection</li>
+            <li>Use a CDN to serve static files from the edge</li>
+            <li>Cache aggressively with proper <code>Cache-Control</code> headers</li>
+            <li>Inlining critical CSS avoids a render-blocking round trip</li>
+        </ul>
+
+        <h2>Render</h2>
+        <p>Once the bytes arrive, the browser has work to do. Parse HTML, build the DOM, resolve CSS, compute layout, and paint. Keeping this pipeline smooth means:</p>
+        <ul>
+            <li>Avoid layout thrashing — batch reads and writes to the DOM</li>
+            <li>Use <code>will-change</code> sparingly to hint at upcoming animations</li>
+            <li>Keep your selector complexity low; deeply nested selectors slow down style recalculation</li>
+            <li>Lazy-load images and iframes that sit below the fold</li>
+        </ul>
+
+        <h2>Runtime</h2>
+        <p>JavaScript is the most expensive resource on the page — not in bytes, but in parsing and execution time. Ship less code. Tree-shake your bundles. Split vendor code from application code. And measure everything: a Lighthouse audit costs five minutes and can surface low-hanging fruit you've been walking past for months.</p>
+
+        <h2>Measure First</h2>
+        <p>Don't optimize based on intuition. Run a Lighthouse audit, check your Core Web Vitals, and profile with the Performance tab in DevTools. Find the bottleneck, fix it, measure again. Repeat.</p>
+    </article>
+</div>
+</body>
+</html>

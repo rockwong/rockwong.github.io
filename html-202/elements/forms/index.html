@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Elements — HTML-202 | Rock Wong</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <style>
+        article { max-width: 680px; margin-top: 40px; line-height: 1.8; font-size: 16px; }
+        article h2 { font-size: 22px; margin: 36px 0 12px; font-weight: 600; color: #333; }
+        article p { margin-bottom: 1em; }
+        article code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; font-size: 14px; }
+        article ul { list-style: disc; margin-left: 24px; margin-bottom: 1em; }
+        article ul li { margin-bottom: 4px; }
+        fieldset { border: 1px solid #ddd; border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
+        legend { font-weight: 600; color: #2C93FF; padding: 0 8px; }
+        label { display: block; margin: 8px 0 4px; font-size: 14px; color: #666; }
+    </style>
+</head>
+<body>
+<div class="warp">
+    <div class="name"><span class="first-name">Rock</span><span class="last-name">.wong</span></div>
+    <article>
+        <h2>Form Elements Done Right</h2>
+        <p>Forms are the primary way users send data to your server. Getting the HTML right makes them accessible, keyboard-navigable, and resilient — before a single line of JavaScript runs.</p>
+
+        <h2>Labels Are Not Optional</h2>
+        <p>Every input deserves a <code>&lt;label&gt;</code>, connected either by nesting or via the <code>for</code> attribute. Screen readers use this association to announce the field's purpose, and clicking the label focuses the input — a larger touch target for free.</p>
+
+        <h2>Native Validation First</h2>
+        <p>Before reaching for a validation library, check what the browser gives you for free:</p>
+        <ul>
+            <li><code>required</code> — the field must be filled before submission</li>
+            <li><code>type="email"</code> — the browser checks format on mobile keyboards</li>
+            <li><code>minlength</code> / <code>maxlength</code> — character count constraints</li>
+            <li><code>pattern</code> — a regex for custom validation rules</li>
+        </ul>
+
+        <fieldset>
+            <legend>A simple contact form</legend>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required style="width:100%;padding:8px;border:1px solid #ddd;border-radius:4px;font-size:14px;">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required style="width:100%;padding:8px;border:1px solid #ddd;border-radius:4px;font-size:14px;">
+
+            <label for="msg">Message</label>
+            <textarea id="msg" name="msg" rows="4" style="width:100%;padding:8px;border:1px solid #ddd;border-radius:4px;font-size:14px;"></textarea>
+        </fieldset>
+
+        <p style="margin-top: 30px;"><a href="../index.html">&larr; Back to HTML-202</a></p>
+    </article>
+</div>
+</body>
+</html>

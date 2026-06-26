@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API-404 — Designing REST Endpoints | Rock Wong</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="../styles/main.css">
+    <style>
+        article { max-width: 680px; margin-top: 40px; line-height: 1.8; font-size: 16px; }
+        article h2 { font-size: 22px; margin: 36px 0 12px; font-weight: 600; color: #333; }
+        article p { margin-bottom: 1em; }
+        article table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+        article th { background: #f5f5f5; text-align: left; padding: 8px 12px; border: 1px solid #e0e0e0; }
+        article td { padding: 8px 12px; border: 1px solid #e0e0e0; }
+        article code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; font-size: 13px; }
+    </style>
+</head>
+<body>
+<div class="warp">
+    <div class="name"><span class="first-name">Rock</span><span class="last-name">.wong</span></div>
+    <article>
+        <h2>API-404: Designing REST Endpoints</h2>
+        <p>A well-designed API feels obvious. Resources are named consistently, verbs are mapped to HTTP methods, and errors speak a language the client can parse. Here's a practical guide to getting the fundamentals right.</p>
+
+        <h2>Resource Naming</h2>
+        <p>Use plural nouns for collections and nest sub-resources logically. Keep URLs predictable — a developer who knows one endpoint should be able to guess the next.</p>
+        <table>
+            <tr><th>Method</th><th>Endpoint</th><th>Purpose</th></tr>
+            <tr><td><code>GET</code></td><td><code>/articles</code></td><td>List articles</td></tr>
+            <tr><td><code>GET</code></td><td><code>/articles/42</code></td><td>Get a single article</td></tr>
+            <tr><td><code>POST</code></td><td><code>/articles</code></td><td>Create an article</td></tr>
+            <tr><td><code>PUT</code></td><td><code>/articles/42</code></td><td>Replace an article</td></tr>
+            <tr><td><code>PATCH</code></td><td><code>/articles/42</code></td><td>Partial update</td></tr>
+            <tr><td><code>DELETE</code></td><td><code>/articles/42</code></td><td>Remove an article</td></tr>
+        </table>
+
+        <h2>Status Codes That Tell a Story</h2>
+        <p>Use the right HTTP status code — not everything is a <code>200</code> or a <code>500</code>. A <code>201 Created</code> tells the client the resource exists now. A <code>422 Unprocessable Entity</code> says the request was syntactically valid but semantically wrong. The status code is the first thing a client sees; make it count.</p>
+
+        <h2>Error Bodies Matter</h2>
+        <p>When something goes wrong, return a structured error — not a bare string. Include a machine-readable code, a human-readable message, and enough detail for the client to recover without scraping your docs.</p>
+    </article>
+</div>
+</body>
+</html>

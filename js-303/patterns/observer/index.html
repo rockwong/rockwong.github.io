@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Observer Pattern — JS-303 | Rock Wong</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <style>
+        article { max-width: 680px; margin-top: 40px; line-height: 1.8; font-size: 16px; }
+        article h2 { font-size: 22px; margin: 36px 0 12px; font-weight: 600; color: #333; }
+        article p { margin-bottom: 1em; }
+        article pre { background: #f8f8f8; border: 1px solid #e8e8e8; border-radius: 6px; padding: 16px 20px; overflow-x: auto; font-size: 13px; line-height: 1.7; margin-bottom: 1.2em; }
+        article code { font-family: "SF Mono", "Menlo", monospace; font-size: 13px; }
+    </style>
+</head>
+<body>
+<div class="warp">
+    <div class="name"><span class="first-name">Rock</span><span class="last-name">.wong</span></div>
+    <article>
+        <h2>Observer Pattern in JavaScript</h2>
+        <p>The observer pattern is one of the most useful design patterns in a front-end developer's toolkit. It decouples the thing that changes from the things that react to the change — the foundation of event systems, reactive frameworks, and pub-sub architectures.</p>
+
+        <h2>The Core Idea</h2>
+        <p>A subject maintains a list of dependents (observers) and notifies them automatically when its state changes. Observers can subscribe and unsubscribe at runtime, so the wiring is dynamic rather than hard-coded.</p>
+
+        <h2>A Minimal Implementation</h2>
+        <pre><code>class Subject {
+  constructor() {
+    this.observers = [];
+  }
+  subscribe(fn) {
+    this.observers.push(fn);
+    return () => {
+      this.observers = this.observers.filter(o => o !== fn);
+    };
+  }
+  notify(data) {
+    this.observers.forEach(fn => fn(data));
+  }
+}
+
+const store = new Subject();
+const unsub = store.subscribe(data => console.log('Got:', data));
+store.notify({ type: 'UPDATE', value: 42 });
+unsub();</code></pre>
+
+        <h2>When to Use It</h2>
+        <p>Reach for the observer pattern when one piece of state needs to inform multiple, loosely-coupled consumers — a search input that updates a result list, a filter panel, and a URL query string all at once. It's also the mental model behind <code>addEventListener</code>, <code>MutationObserver</code>, and Redux-style state management.</p>
+
+        <p style="margin-top: 30px;"><a href="../index.html">&larr; Back to JS-303</a></p>
+    </article>
+</div>
+</body>
+</html>

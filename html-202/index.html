@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML-202 — Semantic Markup | Rock Wong</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="../styles/main.css">
+    <style>
+        article { max-width: 680px; margin-top: 40px; line-height: 1.8; font-size: 16px; }
+        article h2 { font-size: 22px; margin: 36px 0 12px; font-weight: 600; color: #333; }
+        article p { margin-bottom: 1em; }
+        article code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; font-size: 14px; }
+        .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+        .tag-list span { background: #eef5ff; color: #2C93FF; padding: 4px 12px; border-radius: 20px; font-size: 13px; }
+    </style>
+</head>
+<body>
+<div class="warp">
+    <div class="name"><span class="first-name">Rock</span><span class="last-name">.wong</span></div>
+    <article>
+        <h2>HTML-202: Semantic Markup</h2>
+        <p>Semantic HTML is more than a best practice — it's the bedrock of an accessible, SEO-friendly, and maintainable web. Choosing the right element for your content communicates meaning to browsers, assistive technologies, and search engines alike.</p>
+        <div class="tag-list">
+            <span>&lt;header&gt;</span><span>&lt;nav&gt;</span><span>&lt;main&gt;</span>
+            <span>&lt;article&gt;</span><span>&lt;section&gt;</span><span>&lt;aside&gt;</span>
+            <span>&lt;footer&gt;</span><span>&lt;figure&gt;</span><span>&lt;time&gt;</span>
+        </div>
+        <h2>Why It Matters</h2>
+        <p>A screen reader navigating a page built with <code>&lt;div&gt;</code> elements alone has no landmarks to latch onto. The same page structured with <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, and <code>&lt;article&gt;</code> becomes skimmable — users can jump directly to the content they need. Search engines reward this clarity too, using semantic cues to understand page hierarchy and relevance.</p>
+        <h2>A Practical Heuristic</h2>
+        <p>Before reaching for a <code>&lt;div&gt;</code>, ask: does HTML already have an element for this purpose? If your content can stand alone as a syndicated piece, it's an <code>&lt;article&gt;</code>. If it groups thematically related content under a heading, it's a <code>&lt;section&gt;</code>. If it's tangentially related, it's an <code>&lt;aside&gt;</code>. The right element is usually there — you just need to look for it.</p>
+    </article>
+</div>
+</body>
+</html>

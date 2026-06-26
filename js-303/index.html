@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS-303 — Async Patterns | Rock Wong</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="../styles/main.css">
+    <style>
+        article { max-width: 680px; margin-top: 40px; line-height: 1.8; font-size: 16px; }
+        article h2 { font-size: 22px; margin: 36px 0 12px; font-weight: 600; color: #333; }
+        article p { margin-bottom: 1em; }
+        article pre { background: #f8f8f8; border: 1px solid #e8e8e8; border-radius: 6px; padding: 16px 20px; overflow-x: auto; font-size: 13px; line-height: 1.7; margin-bottom: 1.2em; }
+        article code { font-family: "SF Mono", "Menlo", monospace; font-size: 13px; }
+    </style>
+</head>
+<body>
+<div class="warp">
+    <div class="name"><span class="first-name">Rock</span><span class="last-name">.wong</span></div>
+    <article>
+        <h2>JS-303: Async Patterns in JavaScript</h2>
+        <p>Asynchronous programming is at the heart of JavaScript — from handling user events to fetching data over the network. Over the years, the language has evolved three distinct patterns for managing async flow, and understanding when to use each one is key.</p>
+
+        <h2>Callbacks</h2>
+        <p>The original pattern. A function is passed as an argument and invoked once the operation completes. Simple for one-off tasks, but nesting them leads to the infamous callback pyramid. Still useful for event listeners and simple timeouts.</p>
+        <pre><code>fs.readFile('data.json', (err, data) => {
+  if (err) return console.error(err);
+  console.log(JSON.parse(data));
+});</code></pre>
+
+        <h2>Promises</h2>
+        <p>Promises wrap an async operation in an object that will eventually resolve or reject. They're chainable with <code>.then()</code> and <code>.catch()</code>, which flattens the nesting problem. Native since ES2015 and supported everywhere that matters.</p>
+        <pre><code>fetch('/api/posts')
+  .then(res => res.json())
+  .then(posts => console.log(posts))
+  .catch(err => console.error(err));</code></pre>
+
+        <h2>Async / Await</h2>
+        <p>Syntactic sugar over promises that lets you write async code that reads like synchronous code. Use <code>async</code> to declare a function that returns a promise, and <code>await</code> to pause execution until a promise settles. Error handling goes back to familiar <code>try/catch</code> blocks.</p>
+        <pre><code>async function loadPosts() {
+  try {
+    const res = await fetch('/api/posts');
+    const posts = await res.json();
+    console.log(posts);
+  } catch (err) {
+    console.error(err);
+  }
+}</code></pre>
+
+        <h2>Which One to Choose</h2>
+        <p>For new code, <code>async/await</code> is the default — it's the most readable and the easiest to debug. Use raw promises when you need concurrency patterns like <code>Promise.all()</code> or <code>Promise.race()</code>. Callbacks still have their place in event-driven code and older Node.js APIs, but wrap them in a promise if the nesting gets deep.</p>
+    </article>
+</div>
+</body>
+</html>
