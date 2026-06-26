@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Git 使用教程 | Rock Wong</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="../styles/main.css">
+    <style>
+        article {
+            max-width: 720px;
+            margin-top: 40px;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+        article h2 {
+            font-size: 22px;
+            margin: 36px 0 12px;
+            font-weight: 600;
+            color: #333;
+        }
+        article h3 {
+            font-size: 18px;
+            margin: 24px 0 8px;
+            font-weight: 600;
+            color: #444;
+        }
+        article p { margin-bottom: 1em; }
+        article code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 14px;
+            font-family: "SF Mono", "Menlo", monospace;
+        }
+        article pre {
+            background: #f8f8f8;
+            border: 1px solid #e8e8e8;
+            border-radius: 6px;
+            padding: 16px 20px;
+            overflow-x: auto;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 1.2em;
+        }
+        article pre code {
+            background: none;
+            padding: 0;
+        }
+        article ul {
+            list-style: disc;
+            margin-left: 24px;
+            margin-bottom: 1em;
+        }
+        article ul li { margin-bottom: 4px; }
+    </style>
+</head>
+<body>
+<div class="warp">
+    <div class="name"><span class="first-name">Rock</span><span class="last-name">.wong</span></div>
+    <article>
+        <h2>Git 使用教程</h2>
+        <p>
+            这是一份面向初学者的 Git 入门指南，涵盖日常开发中最常用的命令和工作流。
+        </p>
+
+        <h2>基础配置</h2>
+        <p>安装 Git 后，首先设置你的身份信息——每次提交都会引用这些数据：</p>
+        <pre><code>git config --global user.name "Your Name"
+git config --global user.email "you@example.com"</code></pre>
+
+        <h2>创建仓库</h2>
+        <p>在项目目录中初始化一个新的 Git 仓库，或者克隆一个已有的远程仓库：</p>
+        <pre><code>git init
+git clone https://github.com/user/repo.git</code></pre>
+
+        <h2>日常工作流</h2>
+        <h3>查看状态</h3>
+        <pre><code>git status</code></pre>
+        <h3>暂存文件</h3>
+        <pre><code>git add filename
+git add .          # 暂存所有变更</code></pre>
+        <h3>提交变更</h3>
+        <pre><code>git commit -m "描述你的变更"</code></pre>
+        <h3>推送到远程</h3>
+        <pre><code>git push origin main</code></pre>
+        <h3>拉取最新代码</h3>
+        <pre><code>git pull</code></pre>
+
+        <h2>分支操作</h2>
+        <p>分支让你可以在不影响主线的情况下开发功能或修复 bug：</p>
+        <pre><code>git branch feature-login    # 创建分支
+git checkout feature-login   # 切换到分支
+git checkout -b feature-api  # 创建并切换
+git merge feature-login      # 合并分支到当前分支
+git branch -d feature-login  # 删除已合并的分支</code></pre>
+
+        <h2>常用技巧</h2>
+        <ul>
+            <li><code>git log --oneline --graph</code> — 查看简洁的提交历史图</li>
+            <li><code>git stash</code> / <code>git stash pop</code> — 暂存当前工作，稍后恢复</li>
+            <li><code>git reset --soft HEAD~1</code> — 撤销上一次 commit，保留修改</li>
+            <li><code>git diff</code> — 查看尚未暂存的变更</li>
+        </ul>
+    </article>
+</div>
+</body>
+</html>

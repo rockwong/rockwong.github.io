@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sass Mixin Library | Rock Wong</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="../styles/main.css">
+    <style>
+        article {
+            max-width: 740px;
+            margin-top: 40px;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+        article h2 {
+            font-size: 22px;
+            margin: 36px 0 12px;
+            font-weight: 600;
+            color: #333;
+        }
+        article p { margin-bottom: 1em; }
+        article .intro { color: #555; }
+        article pre {
+            background: #f8f8f8;
+            border: 1px solid #e8e8e8;
+            border-radius: 6px;
+            padding: 16px 20px;
+            overflow-x: auto;
+            font-size: 13px;
+            line-height: 1.7;
+            margin-bottom: 1.2em;
+            font-family: "SF Mono", "Menlo", monospace;
+        }
+        .mixin-name {
+            color: #2C93FF;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+<div class="warp">
+    <div class="name"><span class="first-name">Rock</span><span class="last-name">.wong</span></div>
+    <article>
+        <h2>Sass Mixin Library</h2>
+        <p class="intro">
+            A small, focused collection of Sass mixins I use across projects. Each one solves
+            a recurring problem without pulling in a full framework.
+        </p>
+
+        <h2>Clearfix</h2>
+        <p>When floats need containing, the classic clearfix — still useful in legacy contexts:</p>
+        <pre><code>@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}</code></pre>
+
+        <h2>Media Queries</h2>
+        <p>Named breakpoints make responsive code easier to scan at a glance:</p>
+        <pre><code>$break-sm: 576px;
+$break-md: 768px;
+$break-lg: 1024px;
+
+@mixin respond-above($bp) {
+  @media (min-width: $bp) { @content; }
+}
+
+@mixin respond-below($bp) {
+  @media (max-width: $bp - 1) { @content; }
+}</code></pre>
+
+        <h2>Ellipsis</h2>
+        <p>Truncate text that overflows its container with a single line:</p>
+        <pre><code>@mixin ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}</code></pre>
+
+        <h2>Center</h2>
+        <p>Centering with flexbox, both axes or just one:</p>
+        <pre><code>@mixin center($axis: both) {
+  display: flex;
+  @if $axis == both {
+    justify-content: center;
+    align-items: center;
+  } @else if $axis == x {
+    justify-content: center;
+  } @else if $axis == y {
+    align-items: center;
+  }
+}</code></pre>
+
+        <h2>Typography Scale</h2>
+        <p>A simple modular scale for consistent type sizing:</p>
+        <pre><code>@mixin type-scale($step) {
+  $base: 16px;
+  $ratio: 1.25;
+  font-size: $base * pow($ratio, $step);
+}</code></pre>
+    </article>
+</div>
+</body>
+</html>

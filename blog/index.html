@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog | Rock Wong</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="../styles/main.css">
+    <style>
+        h2 { margin-top: 30px; }
+        .post-list { margin-top: 24px; }
+        .post-list li {
+            padding: 18px 0;
+            border-bottom: 1px solid #e8e8e8;
+            position: relative;
+        }
+        .post-list li a {
+            color: #333;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        .post-list li a:hover { color: #2C93FF; }
+        .post-list .date {
+            display: block;
+            font-size: 13px;
+            color: #999;
+            margin-top: 4px;
+        }
+        .post-list .summary {
+            font-size: 14px;
+            color: #666;
+            margin-top: 6px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+<div class="warp">
+    <div class="name"><span class="first-name">Rock</span><span class="last-name">.wong</span></div>
+    <h2>Writing</h2>
+    <ul class="post-list">
+        <li>
+            <a href="responsive-design-notes.html">Responsive Design Notes</a>
+            <span class="date">June 2026</span>
+            <p class="summary">A collection of practical patterns and lessons learned from building fluid layouts across different screen sizes — from viewport basics to container queries.</p>
+        </li>
+        <li>
+            <a href="#">CSS Grid in Production</a>
+            <span class="date">March 2026</span>
+            <p class="summary">Moving beyond flexbox: real-world patterns for layout, alignment, and fallback strategies when adopting CSS Grid in a large codebase.</p>
+        </li>
+        <li>
+            <a href="#">Building a Minimal Static Site</a>
+            <span class="date">January 2026</span>
+            <p class="summary">Why I chose hand-crafted HTML and a few lines of CSS over a static site generator — and when that trade-off stops making sense.</p>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
